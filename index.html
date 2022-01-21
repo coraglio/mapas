@@ -4,27 +4,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mapa - BCyL</title>
-
-    <link rel="stylesheet" href="index.css">
+    <title>Mapas incrustados en HTML</title>
 
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
     />
     <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
     ></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
   </head>
   <body>
-    <div id="map"></div>
+    <div class="container">
+      <h1 class="text-center">Mapas incrustados en HTML</h1>
+
+      <h3>1. Mapa incrustado desde Google MyMaps</h3>
+      <p>
+        La ventaja que tiene este formato es que se puede editar los iconos de las estaciones, la descripción y las
+        imágenes desde la página de MyMaps
+      </p>
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1EqbbMttEb5HrApnGoupGLke7bGewR5ur&ehbc=2E312F"
+        width="640"
+        height="480"
+      ></iframe>
+
+      <p>
+        Aquí debajo muestro una copia con la edición de la estación Libertad que realicé para ejemplificar la
+        customización, los cambios fueron:
+      </p>
+      <ul>
+        <li>El icono con la silueta de un tren</li>
+        <li>
+          Al hacer click en la estación se despliega un panel lateral con el nombre, la descripción y las imagenes
+          cargadas
+        </li>
+        <li>No se muestra el nombre del usuario dueño del mapa</li>
+      </ul>
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1uqsZaJKmP25LYBTNnX6rdg8kOp2hzRS_&amp;ehbc=2E312F"
+        width="640"
+        height="480"
+      ></iframe>
+
+      <br />
+      <h3>2. Mapa creado con la libreria <a href="https://leafletjs.com/" target="_blank"> Leaflet </a></h3>
+      <p>
+        Con esta libreria podemos crear elementos más customizables, por ejemplo los popover que muestran los nombres de
+        las estaciones y de las lineas al pasar el mouse por encima, como así tambien los popup al hacer click sobre las
+        estaciones.
+      </p>
+      <p>
+        Las desventajas son que los cambios se deben hacer solo por código, y los archivos que se importan deben estar
+        en formato GeoJSON. Yo convertí los archivos que nos pasaron con la aplicación
+        <a href="https://www.qgis.org/" target="_blank">QGIS</a> . Estos GeoJSON, permiten agregar información extra y
+        personalizada, ahí pueden ir los enlaces a las imagenes que se desean mostrar.
+      </p>
+      <iframe src="mapa2.html" width="640" height="480"></iframe>
+
+      <br />
+      <h3>2. Mapa incrustado desde <a href="https://www.mapbox.com/" target="_blank"> Mapbox </a></h3>
+      <p>
+        Esta es una aplicación web con un editor de mapas más completo y customizable que el de Google MyMaps, sin
+        embargo tambien más complejo. Las desventajas son que hay que registrarse con una cuenta, y esta puede ser
+        gratuita o paga, según los límites de consultas que se requieran (la cuenta gratuita provee 50.000 solicitudes
+        mensuales).
+      </p>
+      <iframe
+        src="https://api.mapbox.com/styles/v1/fedecoraglio/ckylpt3mx18mw14mdwb00arl3.html?title=false&amp;access_token=pk.eyJ1IjoiZmVkZWNvcmFnbGlvIiwiYSI6ImNreHQ2dWEyZTJ2Z3UyeHBlcjR1NGV1c2oifQ.KGLQb34FuBzVUJmnRNxf2A&amp;zoomwheel=true#5.41/-30.93/-56.367"
+        title="Streets"
+        style="border: none"
+        width="640"
+        height="480"
+      ></iframe>
+    </div>
   </body>
 </html>

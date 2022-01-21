@@ -5,16 +5,8 @@ window.addEventListener('load', function (event) {
     zoom: 3,
   });
 
-  // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
-  //   foo: 'bar',
-  //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  //   detectRetina: true,
-  // }).addTo(map);
-
   var layer = L.tileLayer(
     'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-    // 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-    // 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmVkZWNvcmFnbGlvIiwiYSI6ImNreHQ2dWEyZTJ2Z3UyeHBlcjR1NGV1c2oifQ.KGLQb34FuBzVUJmnRNxf2A',
     {
       attribution:
         'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.google.com/">Google</a>',
@@ -79,34 +71,9 @@ window.addEventListener('load', function (event) {
                   <li>NOMENCL: ${layer.feature.properties.NOMENCL}</li>
                   <li>LINEA: ${layer.feature.properties.LINEA}</li>
                 </lu>`;
-        return layer.feature.properties.NOMBRE_1;
       })
       .addTo(map);
 
     map.fitBounds(red.getBounds());
   });
-
-  // var station1 = L.marker([-34.5946054, -58.3702778], { icon: trainIcon }).addTo(map);
-  // var station2 = L.marker([-34.5752818, -58.401521], { icon: trainIcon, title: 'Estación 2' }).addTo(map);
-  // station1.bindPopup(
-  //   "<h3>Puerto Madero</h3><p>cualquier contenido HTML</p><img src='assets/foto.jpg' class='foto-popup'/>",
-  //   { maxWidth: 300, minWidth: 300 }
-  // );
-  // station2.bindPopup("<h3>Saldías</h3><p>cualquier contenido HTML</p><img src='assets/foto.jpg' class='foto-popup'/>", {
-  //   maxWidth: 300,
-  //   minWidth: 300,
-  // });
-
-  // station1.bindTooltip('Estación 1', { permanent: true, className: 'my-label', offset: [32, 0] });
-  // station2.bindTooltip('Estación 2', { permanent: true, className: 'my-label', offset: [32, 0] });
-  // // create a red polyline from an array of LatLng points
-  // var latlngs = [
-  //   [-34.5946054, -58.3702778],
-  //   [-34.5752818, -58.401521],
-  // ];
-
-  // var polyline = L.polyline(latlngs, { color: 'red' }).addTo(map);
-
-  // // zoom the map to the polyline
-  // map.fitBounds(polyline.getBounds());
 });
